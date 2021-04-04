@@ -165,7 +165,7 @@ alias skel='cp -Rf ~/.config ~/.config-backup-$(date +%Y.%m.%d-%H.%M.%S) && cp -
 alias bupskel='cp -Rf /etc/skel ~/.skel-backup-$(date +%Y.%m.%d-%H.%M.%S)'
 
 #copy bashrc-latest over on bashrc - cb= copy bashrc
-#alias cb='sudo cp /etc/skel/.bashrc ~/.bashrc && source ~/.bashrc'
+alias cb='sudo cp /etc/skel/.bashrc ~/.bashrc && source ~/.bashrc'
 #copy /etc/skel/.zshrc over on ~/.zshrc - cb= copy zshrc
 alias cz='sudo cp /etc/skel/.zshrc ~/.zshrc && source ~/.zshrc'
 
@@ -191,17 +191,10 @@ alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacma
 alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
 alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
 alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
+alias mirrorus="sudo reflector --country 'United States' --country Canada --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist"
 
 #mounting the folder Public for exchange between host and guest on virtualbox
 alias vbm="sudo /usr/local/bin/smdlinux-vbox-share"
-
-#shopt
-#shopt -s autocd # change to named directory
-#shopt -s cdspell # autocorrects cd misspellings
-#shopt -s cmdhist # save multi-line commands in history as single line
-#shopt -s dotglob
-#shopt -s histappend # do not overwrite history
-#shopt -s expand_aliases # expand aliases
 
 #youtube-dl
 alias yta-aac="youtube-dl --extract-audio --audio-format aac "
@@ -219,8 +212,8 @@ alias ytv-best="youtube-dl -f bestvideo+bestaudio "
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 alias riplong="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -3000 | nl"
 
-#iso and version used to install ArcoLinux
-alias iso="cat /etc/dev-rel | awk -F '=' '/ISO/ {print $2}'"
+#iso and version used to install SMD-Linux
+#alias iso="cat /etc/dev-rel | awk -F '=' '/ISO/ {print $2}'"
 
 #Cleanup orphaned packages
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
@@ -252,10 +245,6 @@ alias sr="sudo reboot"
 
 #maintenance
 alias big="expac -H M '%m\t%n' | sort -h | nl"
-alias downgrada="sudo downgrade --ala-url https://bike.seedhost.eu/arcolinux/"
-
-#systeminfo
-alias probe="sudo -E hw-probe -all -upload"
 
 # # ex = EXtractor for all kinds of archives
 # # usage: ex <file>
